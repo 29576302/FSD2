@@ -19,7 +19,8 @@
 | Officer | s_scott@localhost   | password |
 
 # Project structure:
-`├── app/
+```
+├── app/
 │   ├── main.py
 │   │
 │   ├── api/
@@ -45,4 +46,5 @@
 │
 ├── NYSP_Corrections_DB.sql
 ├── README.md
-└── requirements.txt`
+└── requirements.txt
+```
