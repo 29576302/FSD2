@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 # Hardcoded database URL for simplicity.
-SQLALCHEMY_DATABASE_URL = ""
+SQLALCHEMY_DATABASE_URL = "mysql+mysqldb://root:SEPS@127.0.0.1/nysp_correction_notice_db"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 

@@ -1,13 +1,15 @@
 # This is a RESTful API for the New York State Patrol Correction Notice System, built with Python and FastAPI.
 
+# Requirements
+Python 3.12.0 is REQUIRED for this program.
+
 # How to run:
 1. Create a virtual environment using
 `python -m venv venv`
 2. Install dependencies using
 `pip install -r requirements.txt`
 3. Run Docker container.
-4. Create the database using
-`mysql -u root -p < NYSP_Corrections_DB.sql`
+4. Create the database by running `NYSP_Corrections_DB.sql` in MySQL Workbench
 5. Start the FastAPI server using
 `uvicorn app.main:app --reload`
 6. When testing JWTs and JWT restricted endpoints, use the sample officer account.
