@@ -13,11 +13,13 @@
 6. When testing JWTs and JWT restricted endpoints, use the sample officer account.
 
 # Sample accounts:
-[Role] - [Username] - [Password]
-Citizen - d_kroenke@localhost - password
-Officer - s_scott@localhost - password
+| Role    | Username            | Password |
+|---------|---------------------|----------|
+| Citizen | d_kroenke@localhost | password |
+| Officer | s_scott@localhost   | password |
 
 # Project structure:
+```
 ├── app/
 │   ├── main.py
 │   │
@@ -45,3 +47,4 @@ Officer - s_scott@localhost - password
 ├── NYSP_Corrections_DB.sql
 ├── README.md
 └── requirements.txt
+```
