@@ -42,6 +42,10 @@ def get_driver(driver_id: int, db: Session = Depends(get_db)):
 # Only officers can create drivers
 @router.post("/", response_model=DriverResponse, status_code=201)
 def create_driver(driver: DriverCreate, db: Session = Depends(get_db), current_user: APIUser = Depends(get_user_officer)):
+    # Check if driver with this licence already exists
+    existing_driver = db.query(Driver).filter(Driver.drivers_licence == driver.drivers_licence).first()
+    if existing_driver:
+        raise HTTPException(status_code=409, detail="A driver with this licence already exists")
     new_driver = Driver(**driver.model_dump())
     db.add(new_driver)
     db.commit()
@@ -58,6 +62,14 @@ def update_driver(driver_id: int, driver: DriverUpdate, db: Session = Depends(ge
     # If driver not found, raise 404 error
     if not db_driver:
         raise HTTPException(status_code=404, detail="Driver not found")
+    # Check if updating licence to one that already exists on another driver
+    if driver.drivers_licence:
+        existing_driver = db.query(Driver).filter(
+            Driver.drivers_licence == driver.drivers_licence,
+            Driver.driver_id != driver_id
+        ).first()
+        if existing_driver:
+            raise HTTPException(status_code=409, detail="A driver with this licence already exists")
     # Update the driver
     update_data = driver.model_dump(exclude_unset=True)
     for key, value in update_data.items():
