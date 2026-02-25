@@ -1,11 +1,11 @@
 from pydantic import BaseModel, Field
 from datetime import date, time
 from typing import Optional, Literal
-
-### Reference use of Field() for validation and description
-### https://docs.pydantic.dev/latest/concepts/fields/#inspecting-model-fields
-### Reference use of Literal and Optional for type safety and proper error handling
-### https://docs.pydantic.dev/1.10/usage/types/
+'''
+References:
+# Pydantic (undated) Fields. Available from https://docs.pydantic.dev/latest/concepts/fields/#inspecting-model-fields [accessed 25 February 2026].
+# Pydantic (undated) Types. Available from https://docs.pydantic.dev/1.10/usage/types/ [accessed 25 February 2026].
+'''
 
 '''
 Driver Schemas
